@@ -1,0 +1,10 @@
+ansible_ssh_user: root 
+
+routing_network_interface: eth0 
+ansible_routing_network_interface: ansible_eth0
+hadoop_install_dir: /usr/local/src/hadoop_install/
+
+container_executor: org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor
+cgroups_mount_enable: true 
+cgroups_mount_dir: /sys/fs/cgroup
+cgroups_hierarchy: /hadoop-yarn

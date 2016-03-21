@@ -1,0 +1,3 @@
+---
+- name: Provision master
+  shell: "{{ hadoop_install_dir }}/provision-master.sh"

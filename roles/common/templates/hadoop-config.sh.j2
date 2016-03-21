@@ -1,0 +1,25 @@
+set -e
+
+# Determine JAVA_HOME
+WHICH_JAVA=$(which java)
+if [ $? -ne 0 ]; then
+  echo "ERROR: Could not find java, is it installed?"
+  exit 1
+fi
+ALTERNATIVES_JAVA=$(readlink $WHICH_JAVA)
+export JAVA_HOME=$(readlink $ALTERNATIVES_JAVA | sed 's|bin/java||g')
+
+
+# Hadoop vars
+export HADOOP_INSTALL_DIR={{ hadoop_install_dir }}
+export HADOOP_ARCHIVE=/tmp/hadoop.tar.gz
+export MR_SCRIPT=test-pi-yarn.sh
+export HADOOP_HOME=${HADOOP_INSTALL_DIR}/hadoop
+export CORE_DEFAULT=${HADOOP_HOME}/etc/hadoop/core-default.xml
+export CORE_SITE=${HADOOP_HOME}/etc/hadoop/core-site.xml
+export YARN_DEFAULT=${HADOOP_HOME}/etc/hadoop/yarn-default.xml
+export CONTAINER_EXECUTOR_CFG=${HADOOP_HOME}/etc/hadoop/container-executor.cfg
+export YARN_SITE=${HADOOP_HOME}/etc/hadoop/yarn-site.xml
+export MAPRED_SITE=${HADOOP_HOME}/etc/hadoop/mapred-site.xml
+export SLAVES=${HADOOP_HOME}/etc/hadoop/slaves
+export ENV_CONFIG=${HADOOP_HOME}/env.sh

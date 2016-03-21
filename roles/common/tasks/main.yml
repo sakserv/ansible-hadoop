@@ -1,0 +1,45 @@
+---
+- name: Create directories
+  file: path={{ item.path }} state=directory mode={{ item.mode }}
+  with_items:
+          - { path: "{{ hadoop_install_dir }}", mode: '0755' }
+
+- name: Copying templated files (provisioning scripts/config)
+  template: src={{ item.src }} dest="{{ hadoop_install_dir}}/{{ item.dest }}" mode=0744
+  with_items:
+          - { src: 'hadoop-config.sh.j2', dest: 'hadoop-config.sh' }
+          - { src: 'provision-hadoop.sh.j2', dest: 'provision-hadoop.sh' }
+          - { src: 'provision-master.sh.j2', dest: 'provision-master.sh' }
+          - { src: 'provision-slave.sh.j2', dest: 'provision-slave.sh' }
+          - { src: 'yarn-site.xml.j2', dest: 'yarn-site.xml' }
+
+- name: Copying configuration/control scripts
+  copy: src={{ item.file }} dest="{{ hadoop_install_dir }}/{{ item.file }}"  mode={{ item.mode }}
+  with_items:
+          - { file: 'container-executor.cfg', mode: '0644' }
+          - { file: 'core-default.xml', mode: '0644' }
+          - { file: 'core-site.xml', mode: '0644' }
+          - { file: 'yarn-default.xml', mode: '0644'  }
+          - { file: 'mapred-site.xml', mode: '0644'  }
+          - { file: 'test-pi-yarn.sh', mode: '0744'  }
+          - { file: 'restart-hadoop-master-daemons.sh', mode: '0744'  }
+          - { file: 'restart-hadoop-slave-daemons.sh', mode: '0744'  }
+          - { file: 'get_dhcp_ip_via_br0.sh', mode: '0744' }
+
+- name: Creating the hadoop group
+  group: name=hadoop state=present gid=2000
+
+- name: Creating the hdfs group
+  group: name=hdfs state=present gid=2001
+
+- name: Creating the hdfs user
+  user: name=hdfs uid=2001 groups=hdfs,hadoop
+
+- name: Creating the yarn group
+  group: name=yarn state=present gid=2002
+
+- name: Creating the yarn user
+  user: name=yarn uid=2002 groups=yarn,hadoop
+
+- name: Creating the yarn cpu cgroup hierarchy
+  file: path="{{ cgroups_mount_dir }}/cpu/{{ cgroups_hierarchy }}" state=directory 
