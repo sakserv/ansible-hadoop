@@ -43,3 +43,6 @@
 
 - name: Creating the yarn cpu cgroup hierarchy
   file: path="{{ cgroups_mount_dir }}/cpu/{{ cgroups_hierarchy }}" state=directory 
+
+- name: Adding hadoop bin dir to PATH
+  shell: ". /etc/profile && echo \"export PATH=$PATH:{{ hadoop_install_dir }}/hadoop/bin\" >> /etc/profile"
