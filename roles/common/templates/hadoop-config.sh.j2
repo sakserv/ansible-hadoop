@@ -14,6 +14,7 @@ export JAVA_HOME=$(readlink $ALTERNATIVES_JAVA | sed 's|bin/java||g')
 export HADOOP_INSTALL_DIR={{ hadoop_install_dir }}
 export HADOOP_ARCHIVE=/tmp/hadoop.tar.gz
 export MR_SCRIPT=test-pi-yarn.sh
+export DOCKER_SCRIPT=test-pi-docker-yarn.sh
 export HADOOP_HOME=${HADOOP_INSTALL_DIR}/hadoop
 export CORE_DEFAULT=${HADOOP_HOME}/etc/hadoop/core-default.xml
 export CORE_SITE=${HADOOP_HOME}/etc/hadoop/core-site.xml
