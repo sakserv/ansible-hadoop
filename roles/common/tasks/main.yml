@@ -46,3 +46,6 @@
 
 - name: Adding hadoop bin dir to PATH
   shell: ". /etc/profile && echo \"export PATH=$PATH:{{ hadoop_install_dir }}/hadoop/bin\" >> /etc/profile"
+
+- name: Adding hadoop home to profile
+  shell: ". /etc/profile && echo \"export HADOOP_HOME={{ hadoop_install_dir }}/hadoop\" >> /etc/profile"
