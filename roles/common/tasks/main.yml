@@ -22,6 +22,7 @@
           - { file: 'yarn-default.xml', mode: '0644'  }
           - { file: 'mapred-site.xml', mode: '0644'  }
           - { file: 'test-pi-yarn.sh', mode: '0744'  }
+          - { file: 'test-pi-docker-yarn.sh', mode: '0744'  }
           - { file: 'restart-hadoop-master-daemons.sh', mode: '0744'  }
           - { file: 'restart-hadoop-slave-daemons.sh', mode: '0744'  }
           - { file: 'get_dhcp_ip_via_br0.sh', mode: '0744' }

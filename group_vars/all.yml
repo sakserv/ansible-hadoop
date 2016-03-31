@@ -6,5 +6,5 @@ hadoop_install_dir: /usr/local/src/hadoop_install/
 
 container_executor: org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor
 cgroups_mount_enable: true 
-cgroups_mount_dir: /sys/fs/cgroup
+cgroups_mount_dir: /
 cgroups_hierarchy: /hadoop-yarn
