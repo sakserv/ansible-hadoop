@@ -76,6 +76,8 @@ chown -R root:root ${HADOOP_HOME}
 chmod 6050 ${HADOOP_HOME}/bin/container-executor 
 mkdir -p ${HADOOP_HOME}/logs
 chmod 777 ${HADOOP_HOME}/logs
+mkdir -p ${HADOOP_HOME}/tmp
+chmod 777 ${HADOOP_HOME}/tmp
 
 echo "done installing hadoop environment"
 
