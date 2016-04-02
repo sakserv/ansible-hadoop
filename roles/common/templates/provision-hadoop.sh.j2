@@ -6,7 +6,8 @@ SLAVE_IPS={% set comma = joiner(",") %}
                               {%- for host in groups['slaves'] -%}
                                 {{ comma() }}{{ hostvars[host][ansible_routing_network_interface]['ipv4']['address'] }}
                               {%- endfor %}
-
+CE_GROUP={{ container_executor_group }}
+CGROUP_HIERARCHY={{ cgroups_hierarchy }}
 {% raw %}
 set -e
 
@@ -90,7 +91,7 @@ cp ${DOCKER_SCRIPT} ${HADOOP_HOME}
 
 echo "creating cgroups"
 for cgroup in $(mount | grep ^cgroup | awk '{print $3}'); do
-  mkdir -p ${cgroup}/{{ cgroups_hierarchy }}
-  chown {{ container_executor_group }}:{{ container_executor_group }} ${cgroup}/{{ cgroups_hierarchy }}
+  mkdir -p ${cgroup}/${CGROUP_HIERARCHY}
+  chown ${CE_GROUP}:${CE_GROUP} ${cgroup}/${CGROUP_HIERARCHY}
 done
 {% endraw %}
