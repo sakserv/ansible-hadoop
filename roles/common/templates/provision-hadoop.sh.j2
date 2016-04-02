@@ -74,6 +74,7 @@ echo ${SLAVE_IPS} | sed "s/,/\n/g" > ${SLAVES}
 echo "fixing permissions ... "
 chown -R root:root ${HADOOP_HOME}
 chmod 6050 ${HADOOP_HOME}/bin/container-executor 
+chown root:yarn ${HADOOP_HOME}/bin/container-executor 
 mkdir -p ${HADOOP_HOME}/logs
 chmod 777 ${HADOOP_HOME}/logs
 mkdir -p ${HADOOP_HOME}/tmp
