@@ -6,6 +6,7 @@ SLAVE_IPS={% set comma = joiner(",") %}
                               {%- for host in groups['slaves'] -%}
                                 {{ comma() }}{{ hostvars[host][ansible_routing_network_interface]['ipv4']['address'] }}
                               {%- endfor %}
+
 CE_GROUP={{ container_executor_group }}
 CGROUP_HIERARCHY={{ cgroups_hierarchy }}
 {% raw %}
