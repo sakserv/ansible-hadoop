@@ -7,6 +7,7 @@
 - name: Copying templated files (provisioning scripts/config)
   template: src={{ item.src }} dest="{{ hadoop_install_dir}}/{{ item.dest }}" mode=0744
   with_items:
+          - { src: 'container-executor.cfg.j2', dest: 'container-executor.cfg' }
           - { src: 'hadoop-config.sh.j2', dest: 'hadoop-config.sh' }
           - { src: 'provision-hadoop.sh.j2', dest: 'provision-hadoop.sh' }
           - { src: 'provision-master.sh.j2', dest: 'provision-master.sh' }
@@ -16,7 +17,6 @@
 - name: Copying configuration/control scripts
   copy: src={{ item.file }} dest="{{ hadoop_install_dir }}/{{ item.file }}"  mode={{ item.mode }}
   with_items:
-          - { file: 'container-executor.cfg', mode: '0644' }
           - { file: 'core-default.xml', mode: '0644' }
           - { file: 'core-site.xml', mode: '0644' }
           - { file: 'yarn-default.xml', mode: '0644'  }
