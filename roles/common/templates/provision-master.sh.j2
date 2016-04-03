@@ -8,6 +8,8 @@ SLAVE_IPS={% set comma = joiner(",") %}
                               {%- endfor %}
 
 SCRIPT_DIR={{ hadoop_install_dir }}
+CE_GROUP={{ container_executor_group }}
+CGROUP_HIERARCHY={{ cgroups_hierarchy }}
 
 {% raw %}
 MASTER_NAME=hadoop-master
@@ -37,6 +39,9 @@ source ./hadoop-config.sh
 if [ $NUM_SLAVES -eq 0 ]; then
   ./restart-hadoop-slave-daemons.sh
 fi
+
+echo "Running post install script"
+./post-install.sh
 
 popd
 {% endraw %}

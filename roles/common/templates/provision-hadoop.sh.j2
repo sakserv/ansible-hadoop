@@ -93,6 +93,6 @@ cp ${DOCKER_SCRIPT} ${HADOOP_HOME}
 echo "creating cgroups"
 for cgroup in $(mount | grep ^cgroup | awk '{print $3}'); do
   mkdir -p ${cgroup}/${CGROUP_HIERARCHY}
-  chown ${CE_GROUP}:${CE_GROUP} ${cgroup}/${CGROUP_HIERARCHY}
+  chown -R ${CE_GROUP}:${CE_GROUP} ${cgroup}/${CGROUP_HIERARCHY}
 done
 {% endraw %}

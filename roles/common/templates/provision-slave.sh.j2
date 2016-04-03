@@ -46,5 +46,9 @@ pushd $SCRIPT_DIR
 source ./hadoop-config.sh
 ./provision-hadoop.sh $MASTER_IP $NUM_SLAVES $SLAVE_IPS
 ./restart-hadoop-slave-daemons.sh
+
+echo "Running post install script"
+./post-install.sh
+
 popd
 {% endraw %}
