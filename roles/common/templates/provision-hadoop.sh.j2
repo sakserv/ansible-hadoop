@@ -9,11 +9,9 @@ SLAVE_IPS={% set comma = joiner(",") %}
 
 CE_GROUP={{ container_executor_group }}
 CGROUP_HIERARCHY={{ cgroups_hierarchy }}
+SCRIPT_LIST="set-hadoop-loglevel.sh test-dshell-docker-yarn.sh test-pi-docker-yarn.sh test-pi-yarn.sh"
 {% raw %}
 set -e
-
-#echo installing jdk ..
-#yum install java-1.7.0-openjdk-1.7.0.71-2.5.3.1.el6 java-1.7.0-openjdk-devel-1.7.0.71-2.5.3.1.el6 -y
 
 if [ -d "${HADOOP_HOME}" ]
 then
@@ -84,11 +82,11 @@ chmod 777 ${HADOOP_HOME}/tmp
 
 echo "done installing hadoop environment"
 
-echo "copying test map reduce script .. "
-cp ${MR_SCRIPT} ${HADOOP_HOME}
-
-echo "copying test docker map reduce script .. "
-cp ${DOCKER_SCRIPT} ${HADOOP_HOME}
+echo "copying test scripts"
+for script in $SCRIPT_LIST; do
+  echo "copying $SCRIPT"
+  cp $script ${HADOOP_HOME}
+done
 
 echo "creating cgroup hierarchy"
 for cgroup in $(mount | grep ^cgroup | awk '{print $3}'); do
