@@ -13,6 +13,7 @@
           - { src: 'provision-master.sh.j2', dest: 'provision-master.sh' }
           - { src: 'provision-slave.sh.j2', dest: 'provision-slave.sh' }
           - { src: 'post-install.sh.j2', dest: 'post-install.sh' }
+          - { src: 'set-hadoop-loglevel.sh.j2', dest: 'set-hadoop-loglevel.sh' }
           - { src: 'yarn-site.xml.j2', dest: 'yarn-site.xml' }
 
 - name: Copying configuration/control scripts
@@ -24,6 +25,7 @@
           - { file: 'mapred-site.xml', mode: '0644'  }
           - { file: 'test-pi-yarn.sh', mode: '0744'  }
           - { file: 'test-pi-docker-yarn.sh', mode: '0744'  }
+          - { file: 'test-dshell-docker-yarn.sh', mode: '0744'  }
           - { file: 'restart-hadoop-master-daemons.sh', mode: '0744'  }
           - { file: 'restart-hadoop-slave-daemons.sh', mode: '0744'  }
           - { file: 'get_dhcp_ip_via_br0.sh', mode: '0744' }
