@@ -5,16 +5,16 @@ CGROUP_HIERARCHY={{ cgroups_hierarchy }}
 HADOOP_INST_DIR={{ hadoop_install_dir }}
 HADOOP_HOME=$HADOOP_INST_DIR/hadoop
 
-echo "Fixing cgroups"
-for cgroup in $(mount | grep ^cgroup | awk '{print $3}'); do
-  mkdir -p ${cgroup}/${CGROUP_HIERARCHY}
-  chown -R ${CE_GROUP}:${CE_GROUP} ${cgroup}/${CGROUP_HIERARCHY}
-done
+#echo "Fixing cgroups"
+#for cgroup in $(mount | grep ^cgroup | awk '{print $3}'); do
+#  mkdir -p ${cgroup}/${CGROUP_HIERARCHY}
+#  chown -R ${CE_GROUP}:${CE_GROUP} ${cgroup}/${CGROUP_HIERARCHY}
+#done
 
-echo "Restarting nodemanager"
-. $HADOOP_HOME/env.sh
-su - yarn -c "${HADOOP_HOME}/sbin/yarn-daemon.sh stop nodemanager"
-su - yarn -c "${HADOOP_HOME}/sbin/yarn-daemon.sh start nodemanager"
+#echo "Restarting nodemanager"
+#. $HADOOP_HOME/env.sh
+#su - yarn -c "${HADOOP_HOME}/sbin/yarn-daemon.sh stop nodemanager"
+#su - yarn -c "${HADOOP_HOME}/sbin/yarn-daemon.sh start nodemanager"
 
 echo "Creating root user hdfs home directory"
 su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -mkdir -p /user/root"
