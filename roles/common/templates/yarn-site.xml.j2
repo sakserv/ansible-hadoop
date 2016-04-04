@@ -42,18 +42,18 @@
   </property>
 
   <property>
-      <name>yarn.nodemanager.linux-container-executor.resources-handler.class</name>
-      <value>org.apache.hadoop.yarn.server.nodemanager.util.CgroupsLCEResourcesHandler</value>
+    <name>yarn.nodemanager.linux-container-executor.resources-handler.class</name>
+    <value>org.apache.hadoop.yarn.server.nodemanager.util.CgroupsLCEResourcesHandler</value>
   </property>
   
   <property>
-      <name>yarn.nodemanager.linux-container-executor.cgroups.mount</name>
-      <value>{{ cgroups_mount_enable }}</value>
+    <name>yarn.nodemanager.linux-container-executor.cgroups.mount</name>
+    <value>{{ cgroups_mount_enable }}</value>
   </property>
   
   <property>
-      <name>yarn.nodemanager.linux-container-executor.cgroups.mount-path</name>
-      <value>{{ cgroups_mount_dir }}</value>
+    <name>yarn.nodemanager.linux-container-executor.cgroups.mount-path</name>
+    <value>{{ cgroups_mount_dir }}</value>
   </property>
 
   <property>
@@ -72,33 +72,33 @@
   </property>
 
   <property>
-   <name>yarn.nodemanager.local-dirs</name>
-   <value>/tmp/nm-local-dir</value>
+    <name>yarn.nodemanager.local-dirs</name>
+    <value>/tmp/nm-local-dir</value>
   </property>
 
   <property>
-   <name>yarn.nodemanager.linux-container-executor.docker.post-run-network-script</name>
-   <value>{{ hadoop_install_dir }}/get_dhcp_ip_via_br0.sh</value>
+    <name>yarn.nodemanager.linux-container-executor.docker.post-run-network-script</name>
+    <value>{{ hadoop_install_dir }}/get_dhcp_ip_via_br0.sh</value>
   </property>
 
   <property>
-   <name>yarn.nodemanager.linux-container-executor.docker.network-image</name>
-   <value>kubernetes/pause</value>
+    <name>yarn.nodemanager.linux-container-executor.docker.network-image</name>
+    <value>kubernetes/pause</value>
   </property>
 
   <property>
-          <name>yarn.nodemanager.recovery.enabled</name>
-          <value>true</value>
+    <name>yarn.nodemanager.recovery.enabled</name>
+    <value>true</value>
   </property>
 
   <property>
-          <name>yarn.nodemanager.recovery.dir</name>
-          <value>/tmp/yarn-recovery</value>
+    <name>yarn.nodemanager.recovery.dir</name>
+    <value>/tmp/yarn-recovery</value>
   </property>
 
   <property>
-          <name>yarn.nodemanager.recovery.supervised</name>
-          <value>true</value>
+    <name>yarn.nodemanager.recovery.supervised</name>
+    <value>true</value>
   </property>
 
 
@@ -110,6 +110,76 @@
   <property>
     <name>yarn.nodemanager.linux-container-executor.group</name>
     <value>{{ container_executor_group }}</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.linux-container-executor.nonsecure-mode.local-user</name>
+    <value>nobody</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.process-kill-wait.ms</name>
+    <value>300000</value>
+  </property>  
+
+  <property>
+    <name>yarn.nodemanager.runtime.linux.docker.capabilities</name>
+    <value>CHOWN,DAC_OVERRIDE,FSETID,FOWNER,MKNOD,NET_RAW,SETGID,SETUID,SETFCAP,SETPCAP,NET_BIND_SERVICE,SYS_CHROOT,KILL,AUDIT_WRITE,DAC_READ_SEARCH,SYS_PTRACE,SYS_ADMIN</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.runtime.linux.docker.privileged-containers.allowed</name>
+    <value>true</value>
+  </property> 
+
+  <property>
+    <name>yarn.nodemanager.runtime.linux.docker.privileged-containers.acl</name>
+    <value>root</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.pmem-check-enabled</name>
+    <value>false</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.resource.cpu.enabled</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.resource.disk.enabled</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.resource.memory.enabled</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.resource.network.enabled</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.resource.network.interface</name>
+    <value>eth0</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.am.max-attempts</name>
+    <value>5</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.delete.debug-delay-sec</name>
+    <value>36000</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.resource.network.outbound-bandwidth-mbit</name>
+    <value>10000</value>
   </property>
 
 </configuration>
