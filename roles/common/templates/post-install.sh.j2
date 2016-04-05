@@ -8,5 +8,5 @@ su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -mkdir -p /user/root"
 su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chown root:hadoop /user/root"
 
 echo "Creating yarn staging directory"
-su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -mkdir -p /tmp/hadoop-yarn/staging"
-su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chmod 777 /tmp/hadoop-yarn/staging"
+su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -mkdir -p /tmp/hadoop-yarn/staging/history/done_intermediate"
+su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chmod -R 777 /tmp/hadoop-yarn/staging"
