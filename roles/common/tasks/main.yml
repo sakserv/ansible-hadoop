@@ -25,6 +25,7 @@
           - { file: 'mapred-site.xml', mode: '0644'  }
           - { file: 'test-pi-yarn.sh', mode: '0744'  }
           - { file: 'test-pi-docker-yarn.sh', mode: '0744'  }
+          - { file: 'test-dshell-yarn.sh', mode: '0744'  }
           - { file: 'test-dshell-docker-yarn.sh', mode: '0744'  }
           - { file: 'restart-hadoop-master-daemons.sh', mode: '0744'  }
           - { file: 'restart-hadoop-slave-daemons.sh', mode: '0744'  }
