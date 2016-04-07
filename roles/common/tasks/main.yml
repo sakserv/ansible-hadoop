@@ -29,7 +29,7 @@
           - { file: 'test-dshell-docker-yarn.sh', mode: '0755'  }
           - { file: 'restart-hadoop-master-daemons.sh', mode: '0755'  }
           - { file: 'restart-hadoop-slave-daemons.sh', mode: '0755'  }
-          - { file: 'get_dhcp_ip_via_br0.sh', mode: '0755'' }
+          - { file: 'get_dhcp_ip_via_br0.sh', mode: '0755' }
 
 - name: Creating the hadoop group
   group: name=hadoop state=present gid=2000
