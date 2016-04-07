@@ -5,7 +5,7 @@
           - { path: "{{ hadoop_install_dir }}", mode: '0755' }
 
 - name: Copying templated files (provisioning scripts/config)
-  template: src={{ item.src }} dest="{{ hadoop_install_dir}}/{{ item.dest }}" mode=0744
+  template: src={{ item.src }} dest="{{ hadoop_install_dir}}/{{ item.dest }}" mode=0755
   with_items:
           - { src: 'container-executor.cfg.j2', dest: 'container-executor.cfg' }
           - { src: 'hadoop-config.sh.j2', dest: 'hadoop-config.sh' }
@@ -23,13 +23,13 @@
           - { file: 'core-site.xml', mode: '0644' }
           - { file: 'yarn-default.xml', mode: '0644'  }
           - { file: 'mapred-site.xml', mode: '0644'  }
-          - { file: 'test-pi-yarn.sh', mode: '0744'  }
-          - { file: 'test-pi-docker-yarn.sh', mode: '0744'  }
-          - { file: 'test-dshell-yarn.sh', mode: '0744'  }
-          - { file: 'test-dshell-docker-yarn.sh', mode: '0744'  }
-          - { file: 'restart-hadoop-master-daemons.sh', mode: '0744'  }
-          - { file: 'restart-hadoop-slave-daemons.sh', mode: '0744'  }
-          - { file: 'get_dhcp_ip_via_br0.sh', mode: '0744' }
+          - { file: 'test-pi-yarn.sh', mode: '0755'  }
+          - { file: 'test-pi-docker-yarn.sh', mode: '0755'  }
+          - { file: 'test-dshell-yarn.sh', mode: '0755'  }
+          - { file: 'test-dshell-docker-yarn.sh', mode: '0755'  }
+          - { file: 'restart-hadoop-master-daemons.sh', mode: '0755'  }
+          - { file: 'restart-hadoop-slave-daemons.sh', mode: '0755'  }
+          - { file: 'get_dhcp_ip_via_br0.sh', mode: '0755'' }
 
 - name: Creating the hadoop group
   group: name=hadoop state=present gid=2000
