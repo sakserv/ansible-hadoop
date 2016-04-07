@@ -57,3 +57,6 @@
 
 - name: Adding hadoop home to profile
   shell: ". /etc/profile && echo \"export HADOOP_HOME={{ hadoop_install_dir }}/hadoop\" >> /etc/profile"
+
+- name: copy hdpuser sudoers include file
+  action: template dest='/etc/sudoers.d/hdpuser' src='hdpuser.j2' owner=root group=root mode=440 force=yes validate='visudo -cf %s'
