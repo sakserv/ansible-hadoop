@@ -46,6 +46,12 @@
 - name: Creating the yarn user
   user: name=yarn uid=2002 groups=yarn,hadoop
 
+- name: Creating the hdpuser group
+  group: name=hdpuser state=present gid=8888
+
+- name: Creating the hdpuser user
+  user: name=hdpuser uid=8888 groups=hdpuser
+
 - name: Adding hadoop bin dir to PATH
   shell: ". /etc/profile && echo \"export PATH=$PATH:{{ hadoop_install_dir }}/hadoop/bin\" >> /etc/profile"
 

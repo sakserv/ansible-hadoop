@@ -7,6 +7,10 @@ echo "Creating root user hdfs home directory"
 su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -mkdir -p /user/root"
 su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chown root:hadoop /user/root"
 
+echo "Creating hdpuser user hdfs home directory"
+su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -mkdir -p /user/hdpuser"
+su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chown root:hadoop /user/hdpuser"
+
 echo "Creating yarn staging directory"
 su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -mkdir -p /tmp/hadoop-yarn/staging/history/done_intermediate"
 su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chmod -R 777 /tmp/hadoop-yarn/staging"
