@@ -73,7 +73,7 @@
 
   <property>
     <name>yarn.nodemanager.local-dirs</name>
-    <value>/tmp/nm-local-dir</value>
+    <value>${hadoop.tmp.dir}/yarn/nm-local-dir</value>
   </property>
 
   <property>
@@ -93,7 +93,7 @@
 
   <property>
     <name>yarn.nodemanager.recovery.dir</name>
-    <value>/tmp/yarn-recovery</value>
+    <value>${hadoop.tmp.dir}/yarn/yarn-recovery</value>
   </property>
 
   <property>
