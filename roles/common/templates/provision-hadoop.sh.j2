@@ -37,25 +37,9 @@ export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
 export YARN_CONF_DIR=${HADOOP_HOME}/etc/hadoop
 EOF
 
-if [ -e ${CORE_DEFAULT} ]
-then
-  echo "core-default.xml already exists"
-else
-  echo "copying core-default.xml .. "
-  cp ${HADOOP_INSTALL_DIR}/core-default.xml ${CORE_DEFAULT}
-fi
-
 echo "setting up core-site.xml .. "
 cp ${HADOOP_INSTALL_DIR}/core-site.xml ${CORE_SITE}
 sed -i -e "s;__MASTER_IP__;${MASTER_IP};g" -e "s;__HADOOP_HOME__;${HADOOP_HOME};g" ${CORE_SITE}
-
-if [ -e ${YARN_DEFAULT} ]
-then
-  echo "yarn-default.xml already exists"
-else
-  echo "copying yarn-default.xml .. "
-  cp ${HADOOP_INSTALL_DIR}/yarn-default.xml ${YARN_DEFAULT}
-fi
 
 echo "setting up container-executor.cfg .. "
 cp ${HADOOP_INSTALL_DIR}/container-executor.cfg ${CONTAINER_EXECUTOR_CFG}
