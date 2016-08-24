@@ -19,9 +19,7 @@
 - name: Copying configuration/control scripts
   copy: src={{ item.file }} dest="{{ hadoop_install_dir }}/{{ item.file }}"  mode={{ item.mode }}
   with_items:
-          - { file: 'core-default.xml', mode: '0644' }
           - { file: 'core-site.xml', mode: '0644' }
-          - { file: 'yarn-default.xml', mode: '0644'  }
           - { file: 'mapred-site.xml', mode: '0644'  }
           - { file: 'test-pi-yarn.sh', mode: '0755'  }
           - { file: 'test-pi-docker-yarn.sh', mode: '0755'  }
