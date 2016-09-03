@@ -77,16 +77,6 @@
   </property>
 
   <property>
-    <name>yarn.nodemanager.linux-container-executor.docker.post-run-network-script</name>
-    <value>{{ hadoop_install_dir }}/get_dhcp_ip_via_br0.sh</value>
-  </property>
-
-  <property>
-    <name>yarn.nodemanager.linux-container-executor.docker.network-image</name>
-    <value>kubernetes/pause</value>
-  </property>
-
-  <property>
     <name>yarn.nodemanager.recovery.enabled</name>
     <value>true</value>
   </property>
@@ -190,6 +180,11 @@
   <property>
     <name>yarn.application.classpath</name>
     <value>$HADOOP_CONF_DIR,$HADOOP_COMMON_HOME/share/hadoop/common/*,$HADOOP_COMMON_HOME/share/hadoop/common/lib/*,$HADOOP_HDFS_HOME/share/hadoop/hdfs/*,$HADOOP_HDFS_HOME/share/hadoop/hdfs/lib/*,$HADOOP_YARN_HOME/share/hadoop/yarn/*,$HADOOP_YARN_HOME/share/hadoop/yarn/lib/*,$HADOOP_YARN_HOME/share/hadoop/mapreduce/*</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.runtime.linux.docker.allow-keep-container-on-exit</name>
+    <value>true</value>
   </property>
 
 </configuration>
