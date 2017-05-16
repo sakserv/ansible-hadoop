@@ -21,6 +21,7 @@
   with_items:
           - { file: 'core-site.xml', mode: '0644' }
           - { file: 'mapred-site.xml', mode: '0644'  }
+          - { file: 'hadoop-env.sh', mode: '0755'  }
           - { file: 'test-pi-yarn.sh', mode: '0755'  }
           - { file: 'test-pi-docker-yarn.sh', mode: '0755'  }
           - { file: 'add-docker-config.sh', mode: '0755'  }
