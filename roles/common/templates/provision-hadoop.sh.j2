@@ -51,6 +51,9 @@ sed -i "s;__MASTER_IP__;${MASTER_IP};g" ${YARN_SITE}
 echo "setting up mapred-site.xml .. "
 cp ${HADOOP_INSTALL_DIR}/mapred-site.xml ${MAPRED_SITE}
 
+echo "setting up hadoop-env.sh .. "
+cp ${HADOOP_INSTALL_DIR}/hadoop-env.sh ${HADOOP_ENV_SH}
+
 echo "setting up slaves file .. "
 echo "slaves list : ${SLAVE_IPS}"
 echo ${SLAVE_IPS} | sed "s/,/\n/g" > ${SLAVES}
