@@ -7,8 +7,4 @@
     <name>hadoop.tmp.dir</name>
     <value>__HADOOP_HOME__/tmp</value>
   </property>
-  <property>
-    <name>fs.docker.impl</name>
-    <value>org.apache.hadoop.fs.docker.DockerFileSystem</value>
-  </property>
 </configuration>
