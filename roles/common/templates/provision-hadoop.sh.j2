@@ -16,6 +16,7 @@ set -e
 if [ -d "${HADOOP_HOME}" ]
 then
   echo "WARNING: hadoop home : ${HADOOP_HOME} already exists. deleting."
+  fuser -cuk ${HADOOP_HOME}
   rm -fr ${HADOOP_HOME}
 fi
 
