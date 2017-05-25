@@ -18,7 +18,6 @@ then
   echo "WARNING: hadoop home : ${HADOOP_HOME} already exists. deleting."
   fuser -uk /home/yarn
   fuser -uk /home/hdfs
-  fuser -uk ${HADOOP_HOME}
   rm -fr ${HADOOP_HOME}
 fi
 
