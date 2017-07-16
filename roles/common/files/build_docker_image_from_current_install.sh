@@ -63,14 +63,16 @@ ENV LD_LIBRARY_PATH /usr/local/lib
 ENV export LD_RUN_PATH /usr/local/lib
 
 # Add Hadoop
-ENV HADOOP_PREFIX /usr/local/hadoop
-ENV HADOOP_COMMON_HOME /usr/local/hadoop
-ENV HADOOP_HDFS_HOME /usr/local/hadoop
-ENV HADOOP_MAPRED_HOME /usr/local/hadoop
-ENV HADOOP_YARN_HOME /usr/local/hadoop
-ENV HADOOP_CONF_DIR /usr/local/hadoop/etc/hadoop
-ENV YARN_CONF_DIR $HADOOP_PREFIX/etc/hadoop
-ADD hadoop /usr/src
+ENV HADOOP_INST_PATH /usr/local/src/hadoop_install
+ENV HADOOP_PREFIX $HADOOP_INST_PATH/hadoop
+ENV HADOOP_COMMON_HOME $HADOOP_INST_PATH/hadoop
+ENV HADOOP_HDFS_HOME $HADOOP_INST_PATH/hadoop
+ENV HADOOP_MAPRED_HOME $HADOOP_INST_PATH/hadoop
+ENV HADOOP_YARN_HOME $HADOOP_INST_PATH/hadoop
+ENV HADOOP_CONF_DIR $HADOOP_INST_PATH/hadoop/etc/hadoop
+ENV YARN_CONF_DIR $HADOOP_INST_PATH/etc/hadoop
+ENV PATH $PATH:$HADOOP_INST_PATH:$HADOOP_INST_PATH/bin
+ADD hadoop $HADOOP_INST_PATH/hadoop
 EOF
 
 #
