@@ -4,7 +4,7 @@ source env.sh
 export YARN_EXAMPLES_JAR=./share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar
 
 # ENV Vars
-CNTR_ID="hadoop-install:latest"
+CNTR_ID="hadoop-build:latest"
 MAP_ENV="YARN_CONTAINER_RUNTIME_TYPE=docker,YARN_CONTAINER_RUNTIME_DOCKER_IMAGE=$CNTR_ID,YARN_CONTAINER_RUNTIME_DOCKER_MOUNTS='/tmp:/newtmp:rw,/etc/passwd:/tmp/passwd:ro'"
 REDUCE_ENV="YARN_CONTAINER_RUNTIME_TYPE=docker,YARN_CONTAINER_RUNTIME_DOCKER_IMAGE=$CNTR_ID,YARN_CONTAINER_RUNTIME_DOCKER_MOUNTS='/tmp:/newtmp:rw,/etc/passwd:/tmp/passwd:ro'"
 AM_ENV="YARN_CONTAINER_RUNTIME_TYPE=docker,YARN_CONTAINER_RUNTIME_DOCKER_IMAGE=$CNTR_ID,YARN_CONTAINER_RUNTIME_DOCKER_MOUNTS='/tmp:/newtmp:rw,/etc/passwd:/tmp/passwd:ro'"
