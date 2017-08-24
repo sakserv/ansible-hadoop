@@ -194,7 +194,77 @@
 
   <property>
     <name>yarn.nodemanager.runtime.linux.allowed-runtimes</name>
-    <value>DefaultLinuxContainerRuntime,DockerLinuxContainerRuntime</value>
+    <value>default,docker</value>
+  </property>
+
+  <property>
+    <name>yarn.timeline-service.address</name>
+    <value>__MASTER_IP__:10200</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.bind-host</name>
+    <value>0.0.0.0</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.enabled</name>
+    <value>true</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.generic-application-history.store-class</name>
+    <value>org.apache.hadoop.yarn.server.applicationhistoryservice.NullApplicationHistoryStore</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.http-authentication.simple.anonymous.allowed</name>
+    <value>true</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.http-authentication.type</name>
+    <value>simple</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.leveldb-timeline-store.path</name>
+    <value>${hadoop.tmp.dir}/yarn/timeline</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.leveldb-timeline-store.ttl-interval-ms</name>
+    <value>300000</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.recovery.enabled</name>
+    <value>true</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.store-class</name>
+    <value>org.apache.hadoop.yarn.server.timeline.LeveldbTimelineStore</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.ttl-enable</name>
+    <value>true</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.ttl-ms</name>
+    <value>2678400000</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.webapp.address</name>
+    <value>__MASTER_IP__:8188</value>
+  </property>
+    
+  <property>
+    <name>yarn.timeline-service.webapp.https.address</name>
+    <value>__MASTER_IP__:8190</value>
   </property>
 
 </configuration>
