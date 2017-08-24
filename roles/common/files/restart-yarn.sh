@@ -7,3 +7,6 @@ su - yarn -c "${HADOOP_HOME}/sbin/yarn-daemon.sh start nodemanager"
 
 su - yarn -c "${HADOOP_HOME}/sbin/yarn-daemon.sh stop resourcemanager"
 su - yarn -c "${HADOOP_HOME}/sbin/yarn-daemon.sh start resourcemanager"
+
+su - yarn -c "${HADOOP_HOME}/sbin/yarn-daemon.sh stop timelineserver"
+su - yarn -c "${HADOOP_HOME}/sbin/yarn-daemon.sh start timelineserver"
