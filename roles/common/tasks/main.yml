@@ -22,11 +22,13 @@
           - { file: 'core-site.xml', mode: '0644' }
           - { file: 'mapred-site.xml', mode: '0644'  }
           - { file: 'hadoop-env.sh', mode: '0755'  }
+          - { file: 'capacity-scheduler.xml', mode: '0644'  }
           - { file: 'test-pi-yarn.sh', mode: '0755'  }
           - { file: 'test-pi-docker-yarn.sh', mode: '0755'  }
           - { file: 'test-pi-docker-yarn-mounts.sh', mode: '0755'  }
           - { file: 'add-docker-config.sh', mode: '0755'  }
           - { file: 'test-dshell-yarn.sh', mode: '0755'  }
+          - { file: 'test-dshell-yarn-hdpuser.sh', mode: '0755'  }
           - { file: 'test-dshell-docker-yarn.sh', mode: '0755'  }
           - { file: 'test-dshell-docker-yarn-mounts.sh', mode: '0755'  }
           - { file: 'restart-hadoop-master-daemons.sh', mode: '0755'  }

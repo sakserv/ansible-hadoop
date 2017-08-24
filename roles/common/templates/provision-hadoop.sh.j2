@@ -9,7 +9,7 @@ SLAVE_IPS={% set comma = joiner(",") %}
 
 CE_GROUP={{ container_executor_group }}
 CGROUP_HIERARCHY={{ cgroups_hierarchy }}
-SCRIPT_LIST="set-hadoop-loglevel.sh test-dshell-docker-yarn.sh test-pi-docker-yarn.sh test-pi-yarn.sh test-dshell-yarn.sh restart-nodemanager.sh restart-yarn.sh start-nodemanager.sh add-docker-config.sh test-dshell-docker-yarn-mounts.sh test-pi-docker-yarn-mounts.sh kill-all-apps.sh build_docker_image_from_current_install.sh"
+SCRIPT_LIST="set-hadoop-loglevel.sh test-dshell-docker-yarn.sh test-pi-docker-yarn.sh test-pi-yarn.sh test-dshell-yarn.sh restart-nodemanager.sh restart-yarn.sh start-nodemanager.sh add-docker-config.sh test-dshell-docker-yarn-mounts.sh test-pi-docker-yarn-mounts.sh kill-all-apps.sh build_docker_image_from_current_install.sh test-dshell-yarn-hdpuser.sh"
 {% raw %}
 set -e
 
@@ -55,6 +55,9 @@ cp ${HADOOP_INSTALL_DIR}/mapred-site.xml ${MAPRED_SITE}
 
 echo "setting up hadoop-env.sh .. "
 cp ${HADOOP_INSTALL_DIR}/hadoop-env.sh ${HADOOP_ENV_SH}
+
+echo "setting up capacity-scheduler.xml .. "
+cp ${HADOOP_INSTALL_DIR}/capacity-scheduler.xml ${CAPACITY_SCHEDULER_CONFIG}
 
 echo "setting up slaves file .. "
 echo "slaves list : ${SLAVE_IPS}"
