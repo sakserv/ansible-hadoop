@@ -36,6 +36,7 @@
           - { file: 'start-nodemanager.sh', mode: '0755'  }
           - { file: 'restart-nodemanager.sh', mode: '0755'  }
           - { file: 'restart-yarn.sh', mode: '0755'  }
+          - { file: 'restart-hdfs.sh', mode: '0755'  }
           - { file: 'get_dhcp_ip_via_br0.sh', mode: '0755' }
           - { file: 'kill-all-apps.sh', mode: '0755' }
           - { file: 'build_docker_image_from_current_install.sh', mode: '0755' }
