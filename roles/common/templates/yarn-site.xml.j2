@@ -43,7 +43,7 @@
 
   <property>
     <name>yarn.nodemanager.linux-container-executor.resources-handler.class</name>
-    <value>org.apache.hadoop.yarn.server.nodemanager.util.CgroupsLCEResourcesHandler</value>
+    <value>{{ cgroups_handler }}</value>
   </property>
   
   <property>
