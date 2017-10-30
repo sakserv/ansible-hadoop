@@ -4,6 +4,11 @@ BUILD_DIR=/tmp/$(basename $0).$(date +%s)
 HADOOP_INST_PATH=/usr/local/src/hadoop_install
 DOCKER_IMAGE_NAME="hadoop-build:latest"
 
+M2_TGZ="apache-maven-3.5.2-bin.tar.gz"
+M2_DL="http://mirror.stjschools.org/public/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz"
+M2_HOME=/usr/local/bin/apache-maven-3.5.2/
+M2=$M2_HOME/bin
+
 #if [ -d $BUILD_DIR ]; then
 #  rm -rf $BUILD_DIR
 #fi
@@ -19,15 +24,13 @@ cp -Rp $HADOOP_INST_PATH/ $BUILD_DIR/
 cat << EOF > $BUILD_DIR/install_maven.sh
 echo -e "\n#### Installing Maven"
 cd /tmp
-wget -N http://apache.cs.utah.edu/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz
-tar -xzvf apache-maven-3.5.0-bin.tar.gz -C /usr/local/bin
-export M2_HOME=/usr/local/bin/apache-maven-3.5.0/
-export M2=$M2_HOME/bin
+wget -N $M2_DL
+tar -xzvf $M2_TGZ -C /usr/local/bin
 export JAVA_HOME=$JAVA_HOME
 export PATH=$PATH:$M2:$JAVA_HOME/bin
 echo "export PATH=$PATH:$M2:$JAVA_HOME/bin" >>/etc/profile
-. /etc/profile
-mvn --version
+source /etc/profile
+$M2/mvn --version
 EOF
 chmod 755 $BUILD_DIR/install_maven.sh
 
@@ -51,7 +54,7 @@ RUN yum groupinstall "Development Tools" -y && yum clean all
 RUN yum update -y libselinux && yum clean all
 
 # Install maven
-ENV MVN_BIN_PATH=/usr/local/bin/apache-maven-3.5.0/bin
+ENV MVN_BIN_PATH=$M2
 ADD install_maven.sh /
 RUN /install_maven.sh
 
