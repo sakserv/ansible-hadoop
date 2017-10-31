@@ -27,9 +27,6 @@ cd /tmp
 wget -N $M2_DL
 tar -xzvf $M2_TGZ -C /usr/local/bin
 export JAVA_HOME=$JAVA_HOME
-export PATH=$PATH:$M2:$JAVA_HOME/bin
-echo "export PATH=$PATH:$M2:$JAVA_HOME/bin" >>/etc/profile
-source /etc/profile
 $M2/mvn --version
 EOF
 chmod 755 $BUILD_DIR/install_maven.sh
