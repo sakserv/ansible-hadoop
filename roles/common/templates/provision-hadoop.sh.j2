@@ -85,4 +85,11 @@ for cgroup in $(mount | grep ^cgroup | awk '{print $3}'); do
   mkdir -p ${cgroup}/${CGROUP_HIERARCHY}
   chown -R ${CE_GROUP}:${CE_GROUP} ${cgroup}/${CGROUP_HIERARCHY}
 done
+
+echo "Create directories for bind mount tests"
+mkdir -p /tmp/readwrite
+chown nobody:nobody /tmp/readwrite
+mkdir -p /tmp/readonly
+chown nobody:nobody /tmp/readonly
+
 {% endraw %}
