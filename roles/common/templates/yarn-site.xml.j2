@@ -63,7 +63,27 @@
 
   <property>
     <name>yarn.log-aggregation-enable</name>
-    <value>false</value>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.recovery.enabled</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.store.class</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.fs.state-store.uri</name>
+    <value>hdfs://__MASTER_IP__:9000/rmstore</value>
+  </property>
+
+  <property>
+    <name>yarn.resourcemanager.fs.state-store.retry-policy-spec</name>
+    <value>2000, 500</value>
   </property>
 
   <property>

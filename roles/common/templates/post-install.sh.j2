@@ -14,3 +14,7 @@ su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chown hdpuser:hadoop /user/hdpuser"
 echo "Creating yarn staging directory"
 su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -mkdir -p /tmp/hadoop-yarn/staging/history/done_intermediate"
 su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chmod -R 777 /tmp/hadoop-yarn/staging"
+
+echo "Creating rm state store"
+su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -mkdir -p /rmstore"
+su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chown yarn:hadoop /rmstore"
