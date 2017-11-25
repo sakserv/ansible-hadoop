@@ -18,3 +18,7 @@ su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chmod -R 777 /tmp/hadoop-yarn/staging
 echo "Creating rm state store"
 su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -mkdir -p /rmstore"
 su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chown yarn:hadoop /rmstore"
+
+echo "Creating log aggregation directory"
+su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -mkdir -p /tmp/logs"
+su - hdfs -c "${HADOOP_HOME}/bin/hdfs dfs -chown yarn:hadoop /tmp/logs"
