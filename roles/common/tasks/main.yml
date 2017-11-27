@@ -43,6 +43,7 @@
           - { file: 'build-docker-image-from-current-install.sh', mode: '0755' }
           - { file: 'test-sleep-yarn.sh', mode: '0755'  }
           - { file: 'test-sleep-docker-yarn.sh', mode: '0755'  }
+          - { file: 'restart-resourcemanager.sh', mode: '0755'  }
 
 - name: Creating the hadoop group
   group: name=hadoop state=present gid=2000
