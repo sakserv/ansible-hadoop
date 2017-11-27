@@ -25,6 +25,7 @@
           - { file: 'capacity-scheduler.xml', mode: '0644'  }
           - { file: 'test-pi-yarn.sh', mode: '0755'  }
           - { file: 'test-pi-docker-yarn.sh', mode: '0755'  }
+          - { file: 'test-pi-docker-yarn-am.sh', mode: '0755'  }
           - { file: 'test-pi-docker-yarn-mounts.sh', mode: '0755'  }
           - { file: 'add-docker-config.sh', mode: '0755'  }
           - { file: 'test-dshell-yarn.sh', mode: '0755'  }
@@ -43,6 +44,7 @@
           - { file: 'build-docker-image-from-current-install.sh', mode: '0755' }
           - { file: 'test-sleep-yarn.sh', mode: '0755'  }
           - { file: 'test-sleep-docker-yarn.sh', mode: '0755'  }
+          - { file: 'test-sleep-docker-yarn-am.sh', mode: '0755'  }
           - { file: 'restart-resourcemanager.sh', mode: '0755'  }
 
 - name: Creating the hadoop group
