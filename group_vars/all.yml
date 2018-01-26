@@ -1,6 +1,6 @@
 ansible_ssh_user: root 
-routing_network_interface: eth0 
-ansible_routing_network_interface: ansible_eth0
+routing_network_interface: enp0s8
+ansible_routing_network_interface: ansible_enp0s8
 
 hadoop_install_dir: /usr/local/src/hadoop_install/
 
