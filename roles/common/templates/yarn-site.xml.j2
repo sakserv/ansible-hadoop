@@ -179,7 +179,7 @@
 
   <property>
     <name>yarn.nodemanager.resource.network.interface</name>
-    <value>eth0</value>
+    <value>enp0s8</value>
   </property>
 
   <property>
@@ -290,6 +290,31 @@
   <property>
     <name>yarn.resourcemanager.system-metrics-publisher.enabled</name>
     <value>true</value>
+  </property>
+
+  <property>
+    <name>hadoop.registry.dns.enabled</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>hadoop.registry.dns.bind-address</name>
+    <value>192.168.70.211</value>
+  </property>
+
+  <property>
+    <name>hadoop.registry.dns.bind-port</name>
+    <value>53</value>
+  </property>
+
+  <property>
+    <name>hadoop.registry.dns.domain-name</name>
+    <value>ynsdev</value>
+  </property>
+
+  <property>
+    <name>hadoop.registry.dns.zone-subnet</name>
+    <value>192.168.70</value>
   </property>
 
 </configuration>
